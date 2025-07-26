@@ -1,26 +1,30 @@
 package com.tka.test.registration.testcases;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-import com.tka.test.registration.Registration;
+import com.tka.base.BaseClass;
 
-public class RegistrationTestCases {
+public class RegistrationTestCases extends BaseClass {
 
-	WebDriver driver;
-	Registration registration;
-
-	@BeforeMethod
-	public void setUp() {
-		driver = new ChromeDriver();
-		driver.get("https://javabykiran.in/other/CC/register");
-		registration = new Registration(driver);
+	@Test
+	public void validCreadiential() {
+		registration.enterTitle("Mr");
+		registration.enterFirstName("Sanket");
+		registration.enterLastName("Gaikwad");
+		registration.enterEmailId("sanket236@gmail.com");
+		registration.enterPhoneNo("9209185055");
+		registration.enterMobileNo("9209185055");
+		registration.enterPassword("Sanket@5055");
+		registration.enterConfirmPassword("Sanket@5055");
+		registration.clickTermsAgree();
+		registration.clickMailingList();
+		registration.clickRegisterButton();
+		Assert.assertEquals(driver.getCurrentUrl(), "https://javabykiran.in/other/CC/index.php?_a=account");
 	}
-	
-	@AfterMethod
-	public void closeBrowser() {
-		driver.quit();
+
+	@Test
+	public void invalidCrediential() {
+		registration.clickRegisterButton();
 	}
 }

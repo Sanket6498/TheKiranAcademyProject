@@ -22,6 +22,9 @@ public class Registration {
 	@FindBy(name = "phone")
 	WebElement phoneNo;
 
+	@FindBy(name = "mobile")
+	WebElement mobileNo;
+
 	@FindBy(name = "password")
 	WebElement password;
 
@@ -34,49 +37,53 @@ public class Registration {
 	@FindBy(name = "mailing_list")
 	WebElement mailingList;
 
-	@FindBy(name = "register")
+	@FindBy(id = "register_submit")
 	WebElement registerButton;
 
 	public Registration(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	public void enterTitle(String input) {
 		title.sendKeys(input);
 	}
-	
+
 	public void enterFirstName(String input) {
 		fName.sendKeys(input);
 	}
-	
+
 	public void enterLastName(String input) {
 		lName.sendKeys(input);
 	}
-	
+
 	public void enterEmailId(String input) {
 		emailId.sendKeys(input);
 	}
-	
+
 	public void enterPhoneNo(String input) {
 		phoneNo.sendKeys(input);
 	}
-	
+
+	public void enterMobileNo(String input) {
+		mobileNo.sendKeys(input);
+	}
+
 	public void enterPassword(String input) {
 		password.sendKeys(input);
 	}
-	
+
 	public void enterConfirmPassword(String input) {
 		confirmPassword.sendKeys(input);
 	}
-	
+
 	public void clickTermsAgree() {
 		termsAgree.click();
 	}
-	
+
 	public void clickMailingList() {
 		mailingList.click();
 	}
-	
+
 	public void clickRegisterButton() {
 		registerButton.click();
 	}
