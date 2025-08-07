@@ -12,7 +12,7 @@ public class RegistrationTestCases extends BaseClass {
 		registration.enterTitle("Mr");
 		registration.enterFirstName("Sanket");
 		registration.enterLastName("Gaikwad");
-		registration.enterEmailId("sanket236@gmail.com");
+		registration.enterEmailId("sanket2396@gmail.com");
 		registration.enterPhoneNo("9209185055");
 		registration.enterMobileNo("9209185055");
 		registration.enterPassword("Sanket@5055");
@@ -25,6 +25,6 @@ public class RegistrationTestCases extends BaseClass {
 
 	@Test
 	public void invalidCrediential() {
-		registration.clickRegisterButton();
+		Assert.assertSame(driver.getCurrentUrl(), driver.getTitle());
 	}
 }
